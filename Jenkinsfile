@@ -4,7 +4,7 @@ node {
 
 
     stage("Clone infrastructure config to workspace") {
-        sh 'https://github.com/premutos2003/ct-infra-base-pipeline.git'
+        sh 'git clone https://github.com/premutos2003/ct-infra-base-pipeline.git'
     }
     stage("Build infrastructure") {
         sh '''
