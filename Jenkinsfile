@@ -11,8 +11,7 @@ node {
         sh '''
         cd ct-infra-base
         terraform init
-        terraform apply --auto-approve -var aws_access_key=${AWS_ACCESS_KEY} -var aws_secret_key=${AWS_SECRET_KEY} -var region=${REGION}
-
+        terraform plan
     '''
     }
 
