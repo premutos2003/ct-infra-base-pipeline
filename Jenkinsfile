@@ -10,7 +10,8 @@ node {
     stage("Get Metadata") {
                 sh '''
                 ls
-                ./ ct-infra-base/metadata.sh
+                chmod 400 ct-infra-base/metadata.sh
+                ./  ct-infra-base/metadata.sh
             '''
             }
     stage("Build infrastructure") {
