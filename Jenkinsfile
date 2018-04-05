@@ -11,7 +11,7 @@ node {
                 sh '''
                 ls
                 chmod 400 ct-infra-base/metadata.sh
-                ./  ct-infra-base/metadata.sh
+                sh ct-infra-base/metadata.sh
             '''
             }
     stage("Build infrastructure") {
