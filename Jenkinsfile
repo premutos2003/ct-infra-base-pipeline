@@ -9,7 +9,8 @@ node {
     }
     stage("Get Metadata") {
                 sh '''
-                bash metadata.sh
+                ls
+                ./ metadata.sh
             '''
             }
     stage("Build infrastructure") {
