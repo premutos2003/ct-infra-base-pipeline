@@ -7,13 +7,7 @@ node {
     deleteDir()
         sh 'git clone https://github.com/premutos2003/ct-infra-base.git'
     }
-    stage("Get Metadata") {
-                sh '''
-                ls
-                chmod 400 ct-infra-base/metadata.sh
-                sh ct-infra-base/metadata.sh
-            '''
-            }
+
     stage("Build infrastructure") {
         sh '''
         terraform init ./ct-infra-base
@@ -22,7 +16,7 @@ node {
     }
     stage("Get Metadata") {
             sh '''
-            bash metadata.sh
+            bash ct-infra-base/metadata.sh
         '''
         }
 
