@@ -3,8 +3,9 @@ def didTimeout = false
 node {
     stage("Clone infrastructure config to workspace") {
     deleteDir()
+        sh '''
         curl -H 'Content-Type: application/json' --data '{"env":${ENV},"region":${REGION}}' docker.host.internal.localhost:3000/infra
-        sh 'git clone https://github.com/premutos2003/ct-infra-base.git'
+        git clone https://github.com/premutos2003/ct-infra-base.git'''
     }
 
     stage("Build infrastructure") {
