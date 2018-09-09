@@ -19,7 +19,7 @@ node {
             export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY}
             export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_KEY}
             terraform output
-            id=$(terraform output -json | jq -r '.id')
+            id=$(terraform output -json | jq -r '.id.value')
             terraform output -json  | curl -X PUT -H 'Content-Type: application/json' -d @- docker.for.mac.localhost:3000/envs/$id
             s3_uri=$(terraform output -json | jq -r '.s3_bucket.value')
             aws s3 cp ./terraform.tfstate s3://$s3_uri/state/terraform.tfstate  --region ${REGION}
